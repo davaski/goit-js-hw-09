@@ -16,3 +16,42 @@ img {
   display: block;
   max-width: 100%;
 }
+#datetime-picker {
+  border: 2px solid;
+  font-weight: 500;
+  letter-spacing: 0.03em;
+  line-height: 1.5;
+  font-size: 20px;
+  width: 220px;
+}
+button[data-start] {
+  border: 2px solid;
+  font-weight: 500;
+  letter-spacing: 0.03em;
+  line-height: 1.5;
+  font-size: 20px;
+}
+.timer {
+  display: flex;
+  gap: 40px;
+}
+span[data-days] {
+  margin-top: 40px;
+  display: flex;
+  font-size: 36px;
+}
+span[data-hours] {
+  margin-top: 40px;
+  display: flex;
+  font-size: 36px;
+}
+span[data-minutes] {
+  margin-top: 40px;
+  display: flex;
+  font-size: 36px;
+}
+span[data-seconds] {
+  margin-top: 40px;
+  display: flex;
+  font-size: 36px;
+}
