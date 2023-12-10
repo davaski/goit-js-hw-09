@@ -17,15 +17,15 @@ function changeColor() {
 const changeBody = {
   intervalId: null,
   isActive: false,
-
   start() {
-    if (this.isActive) {
+    if (this.isActive && this.disabled) {
       return;
     }
     this.isActive = true;
     this.intervalId = setInterval(() => {
       changeColor();
     }, 1000);
+    refs.startBtn.disabled = true;
   },
 
   stop() {
@@ -34,6 +34,7 @@ const changeBody = {
       return;
     }
     this.isActive = false;
+    refs.startBtn.disabled = false;
   },
 };
 refs.startBtn.addEventListener('click', () => {

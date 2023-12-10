@@ -30,21 +30,22 @@ const options = {
     if (selectedDates[0] > new Date()) {
       refs.start.disabled = false;
     }
-
-    refs.start.addEventListener('click', () => {
-      intervalId = setInterval(() => {
-        const differenceInTime = selectedDates[0] - new Date();
-
-        if (differenceInTime < 1000) {
-          clearInterval(intervalId);
-        }
-        const readout = convertMs(differenceInTime);
-        viewOfTimer(readout);
-      }, 1000);
-    });
   },
 };
 
+refs.start.addEventListener('click', () => {
+  refs.start.disabled = true;
+  refs.date.disabled = true;
+  intervalId = setInterval(() => {
+    const choosenDate = new Date(refs.date.value);
+    const differenceInTime = choosenDate - Date.now();
+    if (differenceInTime < 1000) {
+      clearInterval(intervalId);
+    }
+    const readout = convertMs(differenceInTime);
+    viewOfTimer(readout);
+  }, 1000);
+});
 flatpickr('#datetime-picker', options);
 
 function viewOfTimer({ days, hours, minutes, seconds }) {
