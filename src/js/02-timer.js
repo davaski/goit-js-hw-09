@@ -41,6 +41,8 @@ refs.start.addEventListener('click', () => {
     const differenceInTime = choosenDate - Date.now();
     if (differenceInTime < 1000) {
       clearInterval(intervalId);
+      refs.start.disabled = false;
+      refs.date.disabled = false;
     }
     const readout = convertMs(differenceInTime);
     viewOfTimer(readout);
